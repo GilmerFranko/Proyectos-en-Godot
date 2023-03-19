@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Mundo.gd" type="Script" id=1]
+[ext_resource path="res://TileSet.tres" type="TileSet" id=2]
+[ext_resource path="res://Zombie.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Pirata.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Datos.tscn" type="PackedScene" id=5]
+
+[node name="Mundo" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 128, 128 )
+format = 1
+tile_data = PoolIntArray( 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0 )
+
+[node name="Zombie" parent="." instance=ExtResource( 3 )]
+position = Vector2( 481.339, 205.055 )
+
+[node name="Pirata" parent="." instance=ExtResource( 4 )]
+
+[node name="Datos" parent="Pirata" instance=ExtResource( 5 )]

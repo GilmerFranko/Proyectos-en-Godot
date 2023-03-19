@@ -1,0 +1,108 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Alien",
+"language": "GDScript",
+"path": "res://src/modules/aliens/alien.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Block",
+"language": "GDScript",
+"path": "res://src/modules/tiles/blocks/block.gd"
+}, {
+"base": "Node2D",
+"class": "Creater_Direction",
+"language": "GDScript",
+"path": "res://creater_direction.gd"
+}, {
+"base": "Node2D",
+"class": "Floors",
+"language": "GDScript",
+"path": "res://src/modules/tiles/arena.gd"
+}, {
+"base": "Node",
+"class": "Function",
+"language": "GDScript",
+"path": "res://src/functions.gd"
+}, {
+"base": "Node2D",
+"class": "MouseControl",
+"language": "GDScript",
+"path": "res://src/modules/player/drag_and_drop.gd"
+}, {
+"base": "Area2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://src/modules/player/Player.gd"
+}, {
+"base": "StaticBody2D",
+"class": "Robot",
+"language": "GDScript",
+"path": "res://src/modules/robots/robot.gd"
+}, {
+"base": "Area2D",
+"class": "Spawn",
+"language": "GDScript",
+"path": "res://src/modules/aliens/spawn.gd"
+} ]
+_global_script_class_icons={
+"Alien": "",
+"Block": "",
+"Creater_Direction": "",
+"Floors": "",
+"Function": "",
+"MouseControl": "",
+"Player": "",
+"Robot": "",
+"Spawn": ""
+}
+
+[application]
+
+config/name="Crafteo"
+run/main_scene="res://src/modules/tiles/blocks/block_metal.tscn"
+boot_splash/image="res://src/modules/menu/loading.png"
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0.129412, 0.305882, 0.247059, 1 )
+config/icon="res://icon.png"
+
+[autoload]
+
+Functions="*res://src/functions.gd"
+Global="*res://src/global.gd"
+Floor="*res://src/modules/tiles/arena.gd"
+
+[input]
+
+click_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+click_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+attack={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

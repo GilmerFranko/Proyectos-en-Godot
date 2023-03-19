@@ -1,0 +1,158 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/modules/tiles/arena.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 32 )
+
+[node name="arena" type="Node2D"]
+position = Vector2( 128, 64 )
+script = ExtResource( 1 )
+
+[node name="floor_1" type="Area2D" parent="."]
+position = Vector2( 32, 32 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Colission" type="CollisionShape2D" parent="floor_1"]
+shape = SubResource( 1 )
+
+[node name="Button" type="Button" parent="floor_1"]
+modulate = Color( 1, 1, 1, 0 )
+show_behind_parent = true
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+
+[node name="floor_2" type="Area2D" parent="."]
+position = Vector2( 96, 32 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Colission" type="CollisionShape2D" parent="floor_2"]
+shape = SubResource( 1 )
+
+[node name="Button" type="Button" parent="floor_2"]
+modulate = Color( 1, 1, 1, 0 )
+show_behind_parent = true
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+
+[node name="floor_3" type="Area2D" parent="."]
+position = Vector2( 160, 32 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Colission" type="CollisionShape2D" parent="floor_3"]
+shape = SubResource( 1 )
+
+[node name="Button" type="Button" parent="floor_3"]
+modulate = Color( 1, 1, 1, 0 )
+show_behind_parent = true
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+
+[node name="floor_4" type="Area2D" parent="."]
+position = Vector2( 224, 32 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Colission" type="CollisionShape2D" parent="floor_4"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Button" type="Button" parent="floor_4"]
+modulate = Color( 1, 1, 1, 0 )
+show_behind_parent = true
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+
+[node name="floor_5" type="Area2D" parent="."]
+position = Vector2( 32, 96 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Colission" type="CollisionShape2D" parent="floor_5"]
+shape = SubResource( 1 )
+
+[node name="Button" type="Button" parent="floor_5"]
+modulate = Color( 1, 1, 1, 0 )
+show_behind_parent = true
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+
+[node name="floor_6" type="Area2D" parent="."]
+position = Vector2( 96, 96 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Colission" type="CollisionShape2D" parent="floor_6"]
+shape = SubResource( 1 )
+
+[node name="Button" type="Button" parent="floor_6"]
+modulate = Color( 1, 1, 1, 0 )
+show_behind_parent = true
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+
+[node name="floor_7" type="Area2D" parent="."]
+position = Vector2( 160, 96 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Colission" type="CollisionShape2D" parent="floor_7"]
+shape = SubResource( 1 )
+
+[node name="Button" type="Button" parent="floor_7"]
+modulate = Color( 1, 1, 1, 0 )
+show_behind_parent = true
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+
+[node name="floor_8" type="Area2D" parent="."]
+position = Vector2( 224, 96 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Colission" type="CollisionShape2D" parent="floor_8"]
+shape = SubResource( 1 )
+
+[node name="Button" type="Button" parent="floor_8"]
+modulate = Color( 1, 1, 1, 0 )
+show_behind_parent = true
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+
+[connection signal="pressed" from="floor_1/Button" to="." method="bt1_pressed"]
+[connection signal="pressed" from="floor_2/Button" to="." method="bt2_pressed"]
+[connection signal="pressed" from="floor_3/Button" to="." method="bt3_pressed"]
+[connection signal="pressed" from="floor_4/Button" to="." method="bt4_pressed"]
+[connection signal="pressed" from="floor_5/Button" to="." method="bt5_pressed"]
+[connection signal="pressed" from="floor_6/Button" to="." method="bt6_pressed"]
+[connection signal="pressed" from="floor_7/Button" to="." method="bt7_pressed"]
+[connection signal="pressed" from="floor_8/Button" to="." method="bt8_pressed"]

@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/Prueba1.png-47ef2f0c84e1bdf6370c99a63a469c39.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Recursos/Images/Micro/OK/Prueba1.png"
+dest_files=[ "res://.import/Prueba1.png-47ef2f0c84e1bdf6370c99a63a469c39.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

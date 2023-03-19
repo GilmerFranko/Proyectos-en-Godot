@@ -1,0 +1,145 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/tilesets/Tierra Roja.png" type="Texture" id=1]
+[ext_resource path="res://scenes/tilesetobj.tres" type="TileSet" id=2]
+[ext_resource path="res://actors/clcikmake/makeworld.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[node name="makeworld" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Position" type="Area2D" parent="."]
+position = Vector2( 15.36, 15.36 )
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="bandera" type="Sprite" parent="Position"]
+modulate = Color( 0.494118, 0.843137, 1, 0.470588 )
+scale = Vector2( 0.16, 0.16 )
+z_index = 4
+texture = ExtResource( 1 )
+flip_h = true
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Position"]
+shape = SubResource( 1 )
+
+[node name="Position2" type="Area2D" parent="."]
+position = Vector2( 15.36, -15.36 )
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="bandera" type="Sprite" parent="Position2"]
+modulate = Color( 0.494118, 0.843137, 1, 0.470588 )
+scale = Vector2( 0.16, 0.16 )
+z_index = 4
+texture = ExtResource( 1 )
+flip_h = true
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Position2"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="Position3" type="Area2D" parent="."]
+position = Vector2( -15.36, -15.36 )
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="bandera" type="Sprite" parent="Position3"]
+modulate = Color( 0.494118, 0.843137, 1, 0.470588 )
+scale = Vector2( 0.16, 0.16 )
+z_index = 4
+texture = ExtResource( 1 )
+flip_h = true
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Position3"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="Position4" type="Area2D" parent="."]
+position = Vector2( -15.36, 15.36 )
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="bandera" type="Sprite" parent="Position4"]
+modulate = Color( 0.494118, 0.843137, 1, 0.470588 )
+scale = Vector2( 0.16, 0.16 )
+z_index = 4
+texture = ExtResource( 1 )
+flip_h = true
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Position4"]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 32, 32 )
+format = 1
+
+[node name="numinstance" type="Label" parent="."]
+margin_left = 336.0
+margin_top = -296.0
+margin_right = 424.0
+margin_bottom = -272.0
+rect_scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fps" type="Label" parent="."]
+margin_left = -512.0
+margin_top = -296.0
+margin_right = -424.0
+margin_bottom = -272.0
+rect_scale = Vector2( 2, 3 )
+text = "prueba"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="File" type="FileDialog" parent="."]
+pause_mode = 2
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -1210.3
+margin_top = -462.828
+margin_right = -327.302
+margin_bottom = -18.8281
+window_title = "Guardar un Archivo"
+access = 2
+current_dir = "/"
+current_path = "/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+[connection signal="body_entered" from="Position" to="." method="_on_Position_body_entered" flags=3]
+[connection signal="body_exited" from="Position" to="." method="_on_Position_body_exited" flags=3]
+[connection signal="body_exited" from="Position2" to="." method="_on_Position_body_exited" flags=3]
+[connection signal="body_exited" from="Position3" to="." method="_on_Position_body_exited" flags=3]
+[connection signal="body_exited" from="Position4" to="." method="_on_Position_body_exited" flags=3]
+[connection signal="confirmed" from="File" to="." method="file_confirmed"]
+[connection signal="file_selected" from="File" to="." method="file_selected"]

@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/modules/menu/items_table.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color( 0.733333, 0.784314, 0.25098, 1 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0 )
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+
+[node name="items_table" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="ItemList" type="ItemList" parent="."]
+margin_left = 2.0
+margin_right = 104.0
+margin_bottom = 599.0
+custom_styles/bg = SubResource( 2 )
+
+[node name="bt_1" type="Button" parent="ItemList"]
+margin_right = 97.0
+margin_bottom = 97.0
+mouse_default_cursor_shape = 2
+custom_styles/normal = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="ItemList/bt_1"]
+position = Vector2( 54, 40 )
+
+[node name="bt_2" type="Button" parent="ItemList"]
+margin_top = 104.0
+margin_right = 97.0
+margin_bottom = 201.0
+custom_styles/normal = SubResource( 1 )
+expand_icon = true
+
+[node name="Sprite" type="Sprite" parent="ItemList/bt_2"]
+position = Vector2( 52, 40 )
+
+[node name="bt_3" type="Button" parent="ItemList"]
+margin_top = 198.0
+margin_right = 97.0
+margin_bottom = 295.0
+custom_styles/normal = SubResource( 1 )
+expand_icon = true
+
+[node name="Sprite" type="Sprite" parent="ItemList/bt_3"]
+position = Vector2( 52, 34 )
+
+[node name="bt_4" type="Button" parent="ItemList"]
+margin_top = 296.0
+margin_right = 97.0
+margin_bottom = 393.0
+custom_styles/normal = SubResource( 1 )
+expand_icon = true
+
+[node name="Sprite" type="Sprite" parent="ItemList/bt_4"]
+position = Vector2( 54, 40 )
+
+[node name="bt_5" type="Button" parent="ItemList"]
+margin_top = 396.0
+margin_right = 97.0
+margin_bottom = 493.0
+custom_styles/normal = SubResource( 1 )
+expand_icon = true
+
+[node name="Sprite" type="Sprite" parent="ItemList/bt_5"]
+position = Vector2( 52, 36 )
+
+[node name="bt_6" type="Button" parent="ItemList"]
+margin_top = 495.0
+margin_right = 97.0
+margin_bottom = 592.0
+custom_styles/normal = SubResource( 1 )
+expand_icon = true
+
+[node name="Sprite" type="Sprite" parent="ItemList/bt_6"]
+position = Vector2( 54, 33 )
+
+[connection signal="pressed" from="ItemList/bt_1" to="." method="bt1_pressed"]
+[connection signal="pressed" from="ItemList/bt_2" to="." method="bt2_pressed"]
+[connection signal="pressed" from="ItemList/bt_3" to="." method="bt3_pressed"]
+[connection signal="pressed" from="ItemList/bt_4" to="." method="bt4_pressed"]
+[connection signal="pressed" from="ItemList/bt_5" to="." method="bt5_pressed"]
+[connection signal="pressed" from="ItemList/bt_6" to="." method="bt6_pressed"]

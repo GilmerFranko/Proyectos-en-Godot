@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Recursos/Sprite/Tank/Bala.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends KinematicBody2D
+export (int) var velocidad = 450
+var direccion
+var posision
+var a
+signal tiempo
+var tiempo
+func _ready():
+	posision = Vector2(0,0)
+	a=false
+	tiempo = false
+	if Input.is_action_just_pressed(\"click\"):
+		$Sale_Bala.start()
+		direccion=get_global_mouse_position() - global_position
+	
+
+func _physics_process(delta):
+		Disparar(delta)
+	
+
+func Disparar(delta):
+	move_and_collide(direccion.normalized()*0.1*velocidad)
+	
+func start(pos, dir):
+	rotation = dir
+	position = pos
+	posision = Vector2().rotated(rotation)
+
+	
+
+
+func _on_VisibilityNotifier2D_viewport_exited(viewport):
+	queue_free()
+
+
+func DesaparecerBalaAlColisionar(body):
+	if tiempo == true:
+		queue_free()
+		
+
+
+func _on_Sale_Bala_timeout():
+	tiempo= true
+
+func _on_Bullet_tiempo():
+	$Sale_Bala.start()
+"
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 6.41538
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 6.42652
+
+[node name="Bullet" type="KinematicBody2D" groups=[
+"bala",
+]]
+scale = Vector2( 0.8, 0.8 )
+input_pickable = true
+collision_layer = 4
+collision_mask = 4
+script = SubResource( 1 )
+velocidad = 50
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 3.21594e-06 )
+scale = Vector2( 1, 1.03294 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="." groups=[
+"bala",
+]]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 3 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="Sale_Bala" type="Timer" parent="."]
+wait_time = 0.03
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextEdit" type="TextEdit" parent="CanvasLayer"]
+margin_left = 16.0
+margin_top = 25.6
+margin_right = 154.0
+margin_bottom = 62.6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="tiempo" from="." to="." method="_on_Bullet_tiempo"]
+[connection signal="body_entered" from="Area2D" to="." method="DesaparecerBalaAlColisionar"]
+[connection signal="viewport_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_viewport_exited"]
+[connection signal="timeout" from="Sale_Bala" to="." method="_on_Sale_Bala_timeout"]

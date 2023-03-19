@@ -1,0 +1,95 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://PlayerNode2D.gd" type="Script" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://Recursos/Sprite/Tank/Tanque.png" type="Texture" id=3]
+[ext_resource path="res://Recursos/Sprite/Tank/Cañon.png" type="Texture" id=4]
+[ext_resource path="res://Spr_Cañon.gd" type="Script" id=5]
+[ext_resource path="res://Recursos/Sprite/Items/Seleccion/Opcion.png" type="Texture" id=6]
+[ext_resource path="res://Recursos/Sprite/Items/Seleccion/Seleccionado.png" type="Texture" id=7]
+[ext_resource path="res://Recursos/Sprite/Misil/Misil1.png" type="Texture" id=8]
+[ext_resource path="res://Recursos/Sprite/Enemigos/Bala.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Tank",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Cañon",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 11.9737, 8.44683 )
+
+[node name="Player" type="Node2D" groups=[
+"player",
+]]
+position = Vector2( 0.454767, -0.804463 )
+script = ExtResource( 1 )
+
+[node name="Player" type="KinematicBody2D" parent="." groups=[
+"player",
+]]
+script = ExtResource( 2 )
+
+[node name="TextEdit" type="TextEdit" parent="Player"]
+self_modulate = Color( 1, 1, 1, 0.27 )
+margin_left = -99.0436
+margin_top = -47.2002
+margin_right = 100.956
+margin_bottom = -27.2002
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Spr_Tank" type="AnimatedSprite" parent="Player"]
+position = Vector2( -0.032917, -0.102859 )
+frames = SubResource( 1 )
+animation = "Tank"
+offset = Vector2( 0.0329179, -23.5798 )
+
+[node name="Spr_Cañon" type="AnimatedSprite" parent="Player"]
+position = Vector2( -0.278401, -0.107356 )
+rotation = 0.0488692
+frames = SubResource( 2 )
+animation = "Cañon"
+offset = Vector2( 0.8381, -15.9577 )
+script = ExtResource( 5 )
+
+[node name="Posision" type="Position2D" parent="Player/Spr_Cañon"]
+position = Vector2( 0.702087, -17.8934 )
+
+[node name="Colision" type="CollisionShape2D" parent="Player"]
+shape = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+
+[node name="Armas" type="CanvasLayer" parent="Player"]
+
+[node name="Opcion" type="Sprite" parent="Player/Armas"]
+position = Vector2( 300, 460 )
+texture = ExtResource( 6 )
+
+[node name="Seleccionado" type="Sprite" parent="Player/Armas"]
+texture = ExtResource( 7 )
+offset = Vector2( 379, 460 )
+
+[node name="Arma1" type="Sprite" parent="Player/Armas"]
+position = Vector2( 221, 451 )
+texture = ExtResource( 8 )
+
+[node name="Arma2" type="Sprite" parent="Player/Armas"]
+texture = ExtResource( 9 )
+offset = Vector2( 253, 460 )
+
+[node name="Arma3" type="Sprite" parent="Player/Armas"]
+offset = Vector2( 400, 451 )

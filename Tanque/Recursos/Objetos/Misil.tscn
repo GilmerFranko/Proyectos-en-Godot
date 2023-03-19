@@ -1,0 +1,51 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Recursos/Objetos/Bala.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Recursos/Objetos/Misil.gd" type="Script" id=2]
+[ext_resource path="res://Recursos/Sprite/Misil/Misil1.png" type="Texture" id=3]
+[ext_resource path="res://Recursos/Sprite/Misil/Misil2.png" type="Texture" id=4]
+[ext_resource path="res://Recursos/Sprite/Misil/Misil3.png" type="Texture" id=5]
+[ext_resource path="res://Recursos/Sprite/Misil/Misil4.png" type="Texture" id=6]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 2.69675
+height = 4.15867
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "Misil",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 2.66326
+height = 6.86275
+
+[node name="Bullet" instance=ExtResource( 1 )]
+scale = Vector2( 1, 1 )
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+visible = false
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = false
+position = Vector2( -1.49012e-008, 0.0581317 )
+shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" parent="." index="3"]
+visible = false
+position = Vector2( -0.268297, 0.129315 )
+scale = Vector2( 0.463401, 0.745116 )
+
+[node name="Sprite2" type="AnimatedSprite" parent="." index="4"]
+position = Vector2( 0.13955, 3.68276 )
+frames = SubResource( 2 )
+animation = "Misil"
+offset = Vector2( -0.13955, -10.9317 )
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2( 3.65078e-007, -0.121779 )
+shape = SubResource( 3 )
